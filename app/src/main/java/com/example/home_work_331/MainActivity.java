@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView, textView1, textView2;
     private String edtNumText1, edtNumText2, edtNumText3;
     private String save, save1, save2;
+    private String t1, t2, t3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,17 +49,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void Sum(View view) {
+    public void sum(View view) {
         doubleThisNumbers();
-        textView.setText((String) Double.valueOf(edtNum1 + edtNum2 + edtNum3).toString());
+        double i = edtNum1 + edtNum2 + edtNum3;
+        t1 = Double.valueOf(i).toString();
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(save, textView.getText().toString());
-        outState.putString(save1, textView1.getText().toString());
-        outState.putString(save2, textView2.getText().toString());
+        outState.putString(save, t1);
+        outState.putString(save1, t2);
+        outState.putString(save2, t3);
     }
 
     @Override
@@ -69,13 +71,15 @@ public class MainActivity extends AppCompatActivity {
         textView2.setText((String) savedInstanceState.get(save2));
     }
 
-    public void Min(View view) {
+    public void min(View view) {
         doubleThisNumbers();
-        textView1.setText((String) Double.valueOf(edtNum1 - edtNum2 - edtNum3).toString());
+        double i = edtNum1 - edtNum2 - edtNum3;
+        t2 = Double.valueOf(i).toString();
     }
 
-    public void Um(View view) {
+    public void um(View view) {
         doubleThisNumbers();
-        textView2.setText((String) Double.valueOf(edtNum1 * edtNum2 * edtNum3).toString());
+        double i = edtNum1 * edtNum2 * edtNum3;
+        t3 = Double.valueOf(i).toString();
     }
 }
